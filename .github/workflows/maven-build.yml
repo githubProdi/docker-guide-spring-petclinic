@@ -26,4 +26,6 @@ jobs:
           distribution: 'adopt'
           cache: maven
       - name: Build with Maven Wrapper
-        run: ./mvnw -B verify
+#        run: ./mvnw -B verify
+        # We add the -D flag to skip the automatic Docker Compose startup
+        run: ./mvnw -B verify -Dspring.docker.compose.skip.in-tests=true
